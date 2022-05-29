@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>「游戏/科技」如何在Linux环境下愉快的推Galgame——从基础配置运行到解决OP视频播放/没声音问题 | PIGACG</title><meta name="keywords" content="游戏,科技"><meta name="author" content="piglalala"><meta name="copyright" content="piglalala"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前面几篇文章提到我现在正在用的主力系统是Deepin Linux，作为一个二次元死宅怎么可能不在电脑上推Galgame呢？不过众所周知Linux不适合作为娱乐平台，相关游戏的官方适配也较少，于是便决定把我自己的配置过程写成这篇Blog，一是用于备忘，其次若是能帮到几个人也是我的荣幸。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「游戏&#x2F;科技」如何在Linux环境下愉快的推Galgame——从基础配置运行到解决OP视频播放&#x2F;没声音问题">
+<meta property="og:url" content="http://example.com/2021/04/07/%E5%A6%82%E4%BD%95%E5%9C%A8linux%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%84%89%E5%BF%AB%E7%9A%84%E6%8E%A8galgame01-%E4%BB%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E5%88%B0/index.html">
+<meta property="og:site_name" content="PIGACG">
+<meta property="og:description" content="前面几篇文章提到我现在正在用的主力系统是Deepin Linux，作为一个二次元死宅怎么可能不在电脑上推Galgame呢？不过众所周知Linux不适合作为娱乐平台，相关游戏的官方适配也较少，于是便决定把我自己的配置过程写成这篇Blog，一是用于备忘，其次若是能帮到几个人也是我的荣幸。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://files.catbox.moe/tq3p81.jpg">
+<meta property="article:published_time" content="2021-04-07T13:35:49.000Z">
+<meta property="article:modified_time" content="2021-11-30T10:02:58.613Z">
+<meta property="article:author" content="piglalala">
+<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.catbox.moe/tq3p81.jpg"><link rel="shortcut icon" href="https://files.catbox.moe/l4rn9i.jpg"><link rel="canonical" href="http://example.com/2021/04/07/%E5%A6%82%E4%BD%95%E5%9C%A8linux%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%84%89%E5%BF%AB%E7%9A%84%E6%8E%A8galgame01-%E4%BB%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E5%88%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3207059160016329',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"距离此文章上一次发布已过去了","messageNext":"天，其中某些内容在如今可能已不再适用。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-11-30 19:02:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="css/mycss.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiperstyle.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://files.catbox.moe/l4rn9i.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://files.catbox.moe/tq3p81.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">PIGACG</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">「游戏/科技」如何在Linux环境下愉快的推Galgame——从基础配置运行到解决OP视频播放/没声音问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-07T13:35:49.000Z" title="发表于 2021-04-07 22:35:49">2021-04-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-30T10:02:58.613Z" title="更新于 2021-11-30 19:02:58">2021-11-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%89%80%E6%9C%89%E6%96%87%E7%AB%A0/">所有文章</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F-Games/">游戏/Games</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="「游戏/科技」如何在Linux环境下愉快的推Galgame——从基础配置运行到解决OP视频播放/没声音问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_dde-desktop_20210407231948.jpg?w=1024"></p>
+<p>前面几篇文章提到我现在正在用的主力系统是Deepin Linux，作为一个二次元死宅怎么可能不在电脑上推Galgame呢？不过众所周知Linux不适合作为娱乐平台，相关游戏的官方适配也较少，于是便决定把我自己的配置过程写成这篇Blog，一是用于备忘，其次若是能帮到几个人也是我的荣幸。<span id="more"></span></p>
+<p>先明确我们的目标：能稳定的跑绝大多数的Galgame，能播放OP能存档保存配置，亦即获得与Windows平台差不多的Galgame游戏体验。</p>
+<p>首先最简单的在Linux上跑Galgame的方式是直接使用Steam Linux版，例如水仙和命运石之门是可以直接在Linux上下载安装并运行的，这种方式相对傻瓜且稳定，但由于适配的游戏实在太少于是决定不采用。</p>
+<p>第二种方式则是安装Play On Linux软件，并导入自己的Galgame.EXE文件进行安装，但还是老毛病——适配太少，许多游戏无法运行，于是也就此排除。</p>
+<p>第三种则是使用ONSscrpter在电脑上运行手机上一样的ONS移植版本的Galgame，因为ONS模拟器适配了Linux平台，这种方法比起前两种支持的游戏也相对更多（点名万华镜和CL），得益于悠久的生态环境这种方法也十分稳定。但我们依旧不选择这种方法，原因是移植版本往往无法获得百分百完整的win版游戏体验，其次便是github上开发者貌似已跑路，后期稳定性存疑。</p>
+<p>所以便有了这次文章的主角——wine。</p>
+<p>wine是一个底层运行环境，能在Linux上模拟Windows操作系统环境，并通过终端命令winecfg和wine 你运行程序的名称.exe这两条命令进行操作系统设置的配置和运行软件。你可以把它理解为Linux上的一个Windows模拟器，在这个模拟器中可以运行Windows应用例如Office套件、WinRAR等。当然也包括了各式各样的游戏（网上有些大佬甚至可以在上面跑原神……）。</p>
+<p>那么如何配置wine环境呢？</p>
+<p>在Debian发行版中直接打开终端命令输入以下命令以开启32位支持，一般只要没报错就行了，需要root权限就先获取权限后运行命令，不过一般运行这条是不需要root权限的：</p>
+<p>sudo dpkg –add-architecture i386</p>
+<p>然后继续输入以下命令以获取wine的软件仓库秘钥：</p>
+<p>wget -nc <a target="_blank" rel="noopener" href="https://dl.winehq.org/wine-builds/Release.key">https://dl.winehq.org/wine-builds/Release.key</a><br>sudo apt-key add Release.key</p>
+<p>然后运行vim /etc/apt/sources.list 进入命令行文本编辑模式（i、：、wq那些基础操作这里就不说了），这个文件就是Debian软件仓库源的配置文件，之后再在末尾添加以下内容后wq保存退出到终端命令。这两行便是wine的软件源，添加后便可使用apt便捷的安装与更新软件。其中第一条是适用于Debian10系统的软件库，第二条是适用于DebianTesting系统的软件库，选择自己对应的添加就行，一般正常情况下是添加第一行。</p>
+<p>deb <a target="_blank" rel="noopener" href="https://dl.winehq.org/wine-builds/debian/">https://dl.winehq.org/wine-builds/debian/</a> buster main<br>deb <a target="_blank" rel="noopener" href="https://dl.winehq.org/wine-builds/debian/">https://dl.winehq.org/wine-builds/debian/</a> bullseye main</p>
+<p>之后输入以下命令更新软件仓库：</p>
+<p>sudo apt update</p>
+<p>继续输入以下命令以安装wine稳定版：</p>
+<p>sudo apt install –install-recommends winehq-stable</p>
+<p>至此你的wine软件已经安装成功，可以使用以下命令查看wine版本以检测是否安装完成：</p>
+<p>wine –version</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_deepin-terminal_20210407212751.jpg?w=924"></p>
+<p>之后执行winecfg这条命令进行wine初次运行时的基础配置，一般默认就行。如果出现乱码就是字库不全问题，请自行搜索相关解决方案。然后wine的配置一般系统选择Windows7，函数库界面先在列表中添加我这些内容，如果列表中没有请手动在框内输入后添加并点击右下角的应用。其他的先暂时默认就行。</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_winecfg.exe_20210407164054.jpg.jpg?w=477"></p>
+<p>然后保存退出到终端页面，此时可以使用clear清屏。如果你关了请重新在桌面打开终端后获取root权限。</p>
+<p>之后便可开始进行游戏运行库的环境安装与配置了。</p>
+<p>首先先明确，单纯的wine只是一个最基础的环境，往往刚设置完只是模拟了一个最简陋的Windows系统，而我们一般跑游戏例如在Steam上下载安装后，第一次运行一般都会自动安装与该游戏相关的运行库如DX9、DX11等。而Linux上配置这些环境的方式一是利用刚刚我们用到的wine里面的函数库，另一种则是利用winestricks环境通过输入代码进行配置。而一般正常情况下wine里自带的函数库是无法满足我们运行galgame的需求的，于是便需要用上winestricks。</p>
+<p>你可以把winestricks理解成一种运行环境，也可理解成一个wine的图形化操作界面，里面可以方便的打开并安装各种软件，原理和Play On Linux类似，只需要在终端里输入winestricks这一条命令便可打开这个图形界面/应用。安装也十分简单，我这边的Deepin系统只需要下面一条命令便可安装winestricks：</p>
+<p>sudo apt install winetricks</p>
+<p>当然如果你安装不起也请直接搜索你的系统所对应的winestricks安装教程。当成功安装后直接在终端输入winestricks这几个字母就可以打开它，并进行相关配置。正常情况下需要等待那么几十秒。</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_e98089e68ba9e58cbae59f9f_20210407215527.jpg?w=1024"></p>
+<p>之后确定打开无误后便可直接直接关闭winestricks这个窗口，并在终端中使用clear清屏，之后便是真正的运行库安装了。参考了<a target="_blank" rel="noopener" href="https://moonsekai.xyz/2020/11/26/%E5%9C%A8-Linux-%E4%B8%8B%E8%B7%91-galgame/">这个博主的方法</a>，可直接查看这个网页。方便起见我将其中一部分内容搬到这里来。</p>
+<p>执行以下命令安装相关运行库，安装完一个软件就关闭一个软件以便后续软件进行安装，别直接退了终端，请等待一会直到确保所有的软件安装完毕，之后会没有任何报错显示运用于xxxx的触发器或是其他的，并可再次输入并执行命令即为安装成功：</p>
+<p>winetricks d3dx9 quartz devenum wmp10 gdiplus dotnet40 ffdshow vcrun6 cjkfonts</p>
+<p>到了这一步后你的电脑其实已经可以运行一些Galgame了例如Ever17、月姬之类的，这里我们使用Ever17进行测试，原因是这游戏有OP，而一般如果你的运行库没有安装全要么是OP无法播放，要么是OP和视频播放没声音。</p>
+<p>同时保险起见如果你的Galgame需要安装，除开DLsite那种exe分卷的解压包（亲测正版的战国兰斯中文版可以安装，运行没试过），其他的保险起见请先在Windows里安装好了将整个文件夹拷贝到你的Linux系统上。</p>
+<p>要用wine跑Galgame和其他win软件的方法也很简单：在你已经解压了的对应应用的文件夹里打开终端命令，找到你需要运行的文件并使用以下命令回车（xxxxx是你的文件名称）：</p>
+<p>wine xxxxx.exe</p>
+<p>当然如果你找名字嫌复杂也可直接在终端里输入ls回车，之后找到你要的软件，并替换掉上面的xxxx部分。例如我这边要运行Ever17且那个文件名是Ever17PC.exe，那命令就是下面这条：</p>
+<p>wine Ever17PC.exe</p>
+<p>第一次运行效果如图，OP播放只有半边，测试可在开始时选择全屏游戏OP便不会出现只有半边的问题，但命令行那边在OP播放时报错提示“你的Gstreamer缺少插件”且游戏OP没有声音。当然在我更早之前没安装上面的运行库尝试跑这个游戏时OP直接不能播放全是空白，只能右键跳过。不过正常进行游玩倒是没问题也可以存档。</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_deepin-terminal_20210407001754.jpg?w=924"></p>
+<p>但正如前面所说，我想要最接近于Windows上跑Galgame的效果，这游戏内视频无法播放真的就像一根刺一样始终插在心里，于是同样是参考上文那个博主以及网络上各路大神的思路后找到了一种解决办法。</p>
+<p>首先既然命令行中提示“您的Gstreamer缺少插件”，那应该是Gstreamer这块出了问题。Gstreamer是一个跨平台的多媒体娱乐开发环境，Linux上许多视频软件都需要用到它。它和wine一样，一般安装后只提供一个最基础、最底层的运行环境，而要实现其他功能则需要安装插件库（类比Adobe PS、PR）。也就是说会报错证明我们相关插件还没安装完成，所以我们必须安装完整的Gstreamer插件环境。</p>
+<p>而如果你按照这篇教程走到这里就不用慌了，差不多要结束了。参考<a target="_blank" rel="noopener" href="https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c">Gstreamer官方安装帮助文档</a>，这里我只把Debian的搬过来。</p>
+<p>首先桌面打开终端执行以下命令安装Gstreamer底层环境，如果显示没有任何软件更新或是其他没有安装过程也没有报错的情况，那就证明你的系统中已经安装了这个底层环境，不需要自己进行安装：</p>
+<p>apt-get install libgstreamer1.0-0</p>
+<p>之后执行以下命令安装good和ugly插件库，good是相对十分完整且稳定的插件库，而ugly是在此基础之上有一些还不那么稳定的测试功能，把这两个都安装上。</p>
+<p>apt-get install gstreamer1.0-plugins-good</p>
+<p>apt-get install gstreamer1.0-plugins-ugly</p>
+<p>如果没报错那么你的两个插件库便已经成功安装。</p>
+<p>之后按照上面那个博主的思路：浏览器前往 <a target="_blank" rel="noopener" href="https://github.com/Nevcairiel/LAVFilters/releases">https://github.com/Nevcairiel/LAVFilters/releases</a> 下载最新的 installer。<br>使用之前的 wine 环境安装他；也就是像我前面所说的目录里打开终端使用wine命令运行这个软件。</p>
+<p>这是一个Windows下的解码器，而我们Galgame如果要正常播放视频必须要得解码器依赖并正确配置。如果你的电脑无法访问github的话请参考我博客里之前的那篇Qv2ray走代理的文章，里面有讲到。</p>
+<p>当你那个解码器安装完后就可以直接关了所有的终端以及其他软件啥的了，此时你的Linux系统已经具有一个相对完整的跑Galgame的环境了。我这边文件夹里打开终端用wine Ever17PC.exe重新运行了Ever17，开始游戏时选择全屏游戏并没有出现任何报错。不过退出的话只能选择先返回主菜单后再退出。</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_ever17pc.exe_20210407225744.jpg.jpg?w=800"></p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_ever17pc.exe_20210407225857.jpg.jpg?w=800"></p>
+<p>顺便如果你玩的是老引擎的Galgame那每次全屏运行退出后所有的桌面图标以及窗口大小都会被打乱，请注意。</p>
+<p>当然其他新发售的Galgame我还没测试，不过视频播放这问题理论上这篇文章的思路通用。如果运行不起请活用winecfg命令在设置里调整你自己的Windows版本试试，也可调整全屏运行试试。而出现其他问题例如月姬没BGM可以在wine的音频设置那里把三个默认改成我下面这样。</p>
+<p><img src="https://pigacg.files.wordpress.com/2021/04/e688aae59bbe_winecfg.exe_20210407230857.jpg.jpg?w=477"></p>
+<p>那么这篇Blog到这里就结束了，可以在Linux上愉快的推Galgame了！</p>
+<p>PS.当然关于如何在Linux上配置Galgame的文章我后续还会更新的，因为这篇文章肯定还是无法满足所有需求（Steam正版、DLsite正版、日文字库以及汉化补丁、转区等），所以后面遇到了其他问题我还会继续更新后续文章的。 ：）</p>
+<p>增补：</p>
+<p>Ever17汉化硬盘版全屏完美运行（win10安装拷贝到Linux）</p>
+<p>月姬汉化版完美运行</p>
+<p>Summer pockes风笛汉化版完美运行</p>
+<p>催眠学習 -Secret Desire-完美运行</p>
+<p>面包房少女完美运行</p>
+<p>VenusBlood-ABYSS-完美运行</p>
+<p>VenusBlood-RAGNAROK-完美运行</p>
+<p>SLEEPLESS完美运行</p>
+<p>对魔忍全系列完美运行</p>
+<p>陰陽騎士トワコ完美运行</p>
+<p>人類最強性欲の嫁 工口倫子完美运行</p>
+<p>巨乳令嬢ＭＣ学園完美运行</p>
+<p>黒獣～気高き聖女は白濁に染まる～完美运行</p>
+<p>多娜多娜官中汉化版 wine4.0版本运行失败（v1.1未打无码补丁），wine6.0版本无法播放视频</p>
+<p>もっと！孕ませ！炎のおっぱい異世界超エロサキュバス学園！完美运行</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">piglalala</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/04/07/%E5%A6%82%E4%BD%95%E5%9C%A8linux%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%84%89%E5%BF%AB%E7%9A%84%E6%8E%A8galgame01-%E4%BB%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E5%88%B0/">http://example.com/2021/04/07/%E5%A6%82%E4%BD%95%E5%9C%A8linux%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%84%89%E5%BF%AB%E7%9A%84%E6%8E%A8galgame01-%E4%BB%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E5%88%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">PIGACG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E6%8A%80/">科技</a></div><div class="post_share"><div class="social-share" data-image="https://files.catbox.moe/tq3p81.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/04/09/%E7%8C%AA%E7%8C%AA%E5%B0%8F%E7%AA%9D3-0%E5%BB%BA%E9%80%A0%E5%AE%8C%E6%88%90%EF%BC%81/"><img class="prev-cover" src="https://files.catbox.moe/rb0ru8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">猪猪小窝3.0装修完毕！</div></div></a></div><div class="next-post pull-right"><a href="/2021/04/07/%E3%80%8C%E6%9D%82%E8%B0%88%E3%80%8D%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%88%8F%E5%89%A7%E4%BC%A0%E7%BB%9F%E4%B8%8E%E5%8F%91%E5%B1%95%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%85%B6%E8%BF%90%E4%BD%9C%E6%9C%BA%E7%90%86/"><img class="next-cover" src="https://files.catbox.moe/6m1myp.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">「杂谈」中西方戏剧传统与发展模式及其运作机理比较研究</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/10/01/【科普-科技-游戏】关于如何解决正版以及冷门新版/" title="【科普/科技/游戏】关于如何解决正版以及冷门新版Galgame报错\"this game is Japan only\"问题——Galgame萌新入坑指南01"><img class="cover" src="https://files.catbox.moe/qnwaiq.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-01</div><div class="title">【科普/科技/游戏】关于如何解决正版以及冷门新版Galgame报错\"this game is Japan only\"问题——Galgame萌新入坑指南01</div></div></a></div><div><a href="/2021/06/25/Galgame萌新入坑指南02——如何购买正版Galgame？/" title="Galgame萌新入坑指南02——如何购买正版Galgame？"><img class="cover" src="https://files.catbox.moe/y0qwy3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-25</div><div class="title">Galgame萌新入坑指南02——如何购买正版Galgame？</div></div></a></div><div><a href="/2021/11/30/《重返未来：1999》/" title="【杂谈/游戏】关于《重返未来：1999》的一些随想"><img class="cover" src="https://files.catbox.moe/87hve4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-30</div><div class="title">【杂谈/游戏】关于《重返未来：1999》的一些随想</div></div></a></div><div><a href="/2019/10/02/【杂谈-游戏】awsl，ライザ的肉腿真可爱/" title="【杂谈/游戏】awsl，ライザ的肉腿真可爱"><img class="cover" src="https://files.catbox.moe/zfwih8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-02</div><div class="title">【杂谈/游戏】awsl，ライザ的肉腿真可爱</div></div></a></div><div><a href="/2021/03/30/关于ff16，我们可以期待什么？-最终幻想16（/" title="「杂谈/游戏」“关于FF16，我们可以期待什么？”——最终幻想16（不靠谱）深度世界观分析及剧情推演与预测"><img class="cover" src="https://files.catbox.moe/9sy9rh.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-30</div><div class="title">「杂谈/游戏」“关于FF16，我们可以期待什么？”——最终幻想16（不靠谱）深度世界观分析及剧情推演与预测</div></div></a></div><div><a href="/2021/06/23/关于塞尔达野炊2时间线的一些猜测，三条时间线的收束和“双勇者”猜想/" title="关于塞尔达野炊2时间线的一些猜测，三条时间线的收束和“双勇者”猜想"><img class="cover" src="https://files.catbox.moe/1bwc0u.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-23</div><div class="title">关于塞尔达野炊2时间线的一些猜测，三条时间线的收束和“双勇者”猜想</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://files.catbox.moe/l4rn9i.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">piglalala</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/piglalala" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1094520282@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/piglalalaaaaaa" target="_blank" title=""><i class="fab fa-twitter"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到猪猪小窝！ 本站随缘更新，祝你在这里度过一段开心的时光 如果你觉得文章不错，可通过本站关于页面支持我喝点可乐</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/29/%E6%96%B0%E6%B5%B7%E8%AF%9A/" title="重看《君名》后的一些emo随想"><img src="https://files.catbox.moe/63vj3c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="重看《君名》后的一些emo随想"/></a><div class="content"><a class="title" href="/2022/05/29/%E6%96%B0%E6%B5%B7%E8%AF%9A/" title="重看《君名》后的一些emo随想">重看《君名》后的一些emo随想</a><time datetime="2022-05-29T05:55:52.000Z" title="发表于 2022-05-29 14:55:52">2022-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/06/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" title="2021年度总结"><img src="https://files.catbox.moe/yyf7jw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021年度总结"/></a><div class="content"><a class="title" href="/2022/02/06/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" title="2021年度总结">2021年度总结</a><time datetime="2022-02-06T08:28:42.000Z" title="发表于 2022-02-06 17:28:42">2022-02-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/30/%E3%80%8A%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A5%EF%BC%9A1999%E3%80%8B/" title="【杂谈/游戏】关于《重返未来：1999》的一些随想"><img src="https://files.catbox.moe/87hve4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【杂谈/游戏】关于《重返未来：1999》的一些随想"/></a><div class="content"><a class="title" href="/2021/11/30/%E3%80%8A%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A5%EF%BC%9A1999%E3%80%8B/" title="【杂谈/游戏】关于《重返未来：1999》的一些随想">【杂谈/游戏】关于《重返未来：1999》的一些随想</a><time datetime="2021-11-30T10:09:02.000Z" title="发表于 2021-11-30 19:09:02">2021-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/21/%E3%80%90BETA%E3%80%91%E7%8C%AA%E7%8C%AA%E5%B0%8F%E7%AA%9D4-0%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%AF%95%EF%BC%8C%E3%82%A8%E3%83%AD%E3%82%B2%E3%83%BC%E3%83%A0%E6%94%BB%E7%95%A5%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%BA%BF/" title="【BETA】猪猪小窝4.0搭建完毕，エロゲーム攻略页面上线"><img src="https://files.catbox.moe/rb0ru8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【BETA】猪猪小窝4.0搭建完毕，エロゲーム攻略页面上线"/></a><div class="content"><a class="title" href="/2021/09/21/%E3%80%90BETA%E3%80%91%E7%8C%AA%E7%8C%AA%E5%B0%8F%E7%AA%9D4-0%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%AF%95%EF%BC%8C%E3%82%A8%E3%83%AD%E3%82%B2%E3%83%BC%E3%83%A0%E6%94%BB%E7%95%A5%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%BA%BF/" title="【BETA】猪猪小窝4.0搭建完毕，エロゲーム攻略页面上线">【BETA】猪猪小窝4.0搭建完毕，エロゲーム攻略页面上线</a><time datetime="2021-09-21T06:47:26.000Z" title="发表于 2021-09-21 15:47:26">2021-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/19/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E6%9C%AC%E4%BD%93%E8%AE%BA/" title="游戏与电影，边界模糊后的未来"><img src="https://files.catbox.moe/5x8xd1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="游戏与电影，边界模糊后的未来"/></a><div class="content"><a class="title" href="/2021/09/19/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E6%9C%AC%E4%BD%93%E8%AE%BA/" title="游戏与电影，边界模糊后的未来">游戏与电影，边界模糊后的未来</a><time datetime="2021-09-19T13:39:21.000Z" title="发表于 2021-09-19 22:39:21">2021-09-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://files.catbox.moe/rb0ru8.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By piglalala</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'yegtPdrGE7eDjBPwxhOvReYf-gzGzoHsz',
+      appKey: 'qWDMFcLQ3ddJIto8YRKeOmwp',
+      placeholder: '请留下你的评论和邮箱',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+                        function butterfly_swiper_injector_config(){
+                          var parent_div_git = document.getElementById('recent-posts');
+                          var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/05/29/新海诚/" alt=""><img width="48" height="48" src="https://files.catbox.moe/63vj3c.jpg" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-05-29</span><a class="blog-slider__title" href="2022/05/29/新海诚/" alt="">重看《君名》后的一些emo随想</a><div class="blog-slider__text">盯着它看不如点进去试试？</div><a class="blog-slider__button" href="2022/05/29/新海诚/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/11/30/《重返未来：1999》/" alt=""><img width="48" height="48" src="https://files.catbox.moe/87hve4.png" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-11-30</span><a class="blog-slider__title" href="2021/11/30/《重返未来：1999》/" alt="">【杂谈/游戏】关于《重返未来：1999》的一些随想</a><div class="blog-slider__text">盯着它看不如点进去试试？</div><a class="blog-slider__button" href="2021/11/30/《重返未来：1999》/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/09/19/电子游戏本体论/" alt=""><img width="48" height="48" src="https://files.catbox.moe/5x8xd1.jpg" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-09-19</span><a class="blog-slider__title" href="2021/09/19/电子游戏本体论/" alt="">游戏与电影，边界模糊后的未来</a><div class="blog-slider__text">盯着它看不如点进去试试？</div><a class="blog-slider__button" href="2021/09/19/电子游戏本体论/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/09/19/感受/" alt=""><img width="48" height="48" src="https://files.catbox.moe/rmkca5.jpg" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-09-19</span><a class="blog-slider__title" href="2021/09/19/感受/" alt="">感受：Sony Xperia 1 ii</a><div class="blog-slider__text">盯着它看不如点进去试试？</div><a class="blog-slider__button" href="2021/09/19/感受/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/06/25/Galgame萌新入坑指南02——如何购买正版Galgame？/" alt=""><img width="48" height="48" src="https://files.catbox.moe/y0qwy3.jpg" alt=""/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-06-25</span><a class="blog-slider__title" href="2021/06/25/Galgame萌新入坑指南02——如何购买正版Galgame？/" alt="">Galgame萌新入坑指南02——如何购买正版Galgame？</a><div class="blog-slider__text">盯着它看不如点进去试试？</div><a class="blog-slider__button" href="2021/06/25/Galgame萌新入坑指南02——如何购买正版Galgame？/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+                          console.log('已挂载butterfly_swiper')
+                          // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+                          }
+                        if( document.getElementById('recent-posts') && (location.pathname ==='all'|| 'all' ==='all')){
+                        butterfly_swiper_injector_config()
+                        }
+                      </script><script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '400ms');
+    arr[i].setAttribute('data-wow-delay', '400ms');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-wowjs/lib/wow_init.min.js"></script><!-- hexo injector body_end end --></body></html>
