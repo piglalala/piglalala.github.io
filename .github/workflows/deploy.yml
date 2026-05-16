@@ -1,0 +1,35 @@
+name: 自动部署博客
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取你的博客源代码 (已升级为最新的 Node.js 24 版本)
+      - uses: actions/checkout@v4
+      
+      # 2. 设置 Node.js 环境 (已升级为 Node.js 22)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22' 
+
+      # 3. 安装依赖：这是跑通流程的核心！
+      - name: 安装 Hexo 与依赖
+        run: |
+          npm install -g hexo-cli  # 全局安装 Hexo 命令
+          npm install              # 安装你的博客所需的插件和主题
+
+      # 4. 生成静态网站文件
+      - name: 生成静态文件
+        run: hexo generate
+
+      # 5. 部署到 gh-pages 分支
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
