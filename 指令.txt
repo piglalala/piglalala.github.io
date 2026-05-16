@@ -1,0 +1,60 @@
+每次动手前，都记得先拉取：git pull origin main（防止另外的设备上有新改动）。
+一次只使用一个设备修改，不要同时改
+万一两边同时改了同一个文件怎么办？
+这是唯一可能产生冲突的情况，但有标准解法。
+
+你正在手机上改 _config.butterfly.yml，还没提交。
+
+同时在电脑上也改了这个文件，并先推送了。
+
+当你在手机上点击 Commit changes 时，GitHub 会提示 冲突，可能无法直接提交。
+
+解决方法：
+
+手机端：放弃本次修改，重新编辑（因为浏览器上很难处理冲突）。
+
+避免技巧：改配置文件前，在心里先“锁定”一个设备。比如对自己说：“接下来的半小时，只用电脑改配置，手机只看不改。” 改完推送后，再解禁。
+git pull origin main      # ① 先同步远程更新（防止冲突）
+# ... 编辑文件 ...
+git add .                 # ② 暂存所有改动
+git commit -m "更新内容"   # ③ 提交改动
+git push origin main      # ④ 推送到 GitHub，触发 Actions 自动部署
+
+假设我想现在电脑上新建或改动一个文件，再同步到仓库：
+# 在 Hexo 根目录下
+git add 指令.txt
+git commit -m "添加同步操作提醒"
+git push origin main
+
+一键指令：
+git add . && git commit -m "更新" && git push origin main
+
+git add .：把当前目录下所有新增和修改过的文件加入待发清单。
+&&：前面命令成功才执行下一个。
+这条命令执行完，GitHub Actions 就会自动部署，和以前的 hexo d 效果一样。
+
+更懒人一点：设置一个 Git 别名
+你可以把上面那串命令定义成一个单词，以后只敲 git done 就行。
+在终端（Git Bash）里执行下面这行（一次性设置）：
+
+git config --global alias.done "!git pull origin main && git add -A && git commit -m '快速更新' && git push origin main"
+
+设置了一个快捷指令集，挂钩=git done，它会自动拉取、暂存所有改动、提交、推送。改动内容会注释为快速更新。
+
+如果想详细注释，就分开执行：
+如果想让每次的提交说明不一样，可以直接用组合命令 
+
+git add . && git commit -m "你的说明" && git push
+
+git add .
+git commit -m"我改了啊"
+git push
+
+也不复杂。
+
+补充提醒
+推送前最好先 git pull origin main，所以上面的别名也带上了拉取，避免冲突。
+
+如果你用的 VS Code 或 GitHub Desktop，直接点几下按钮就是“一键推送”，都不用敲命令。
+
+现在你可以把 git add . && git commit -m "更新" && git push 这一行当成新的“发布快捷键”啦。
