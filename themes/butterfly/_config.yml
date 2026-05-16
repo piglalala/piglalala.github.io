@@ -665,7 +665,7 @@ aside:
     enable: true
     content: 欢迎来到猪猪小窝！
       本站随缘更新，祝你在这里度过一段开心的时光
-      如果你觉得文章不错，可通过本站关于页面支持我喝点可乐
+      如果你觉得文章不错，可以多多留言or去X上找我互动，或是屏幕外的其他地方偶遇
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
