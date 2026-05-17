@@ -158,3 +158,13 @@ wowjs:
     js:
     option:
     front_matter:
+
+#karmed渲染器，butterfly主题mathjax的依赖
+#see：https://butterfly.js.org/posts/4aa8abbe/  kramed:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
