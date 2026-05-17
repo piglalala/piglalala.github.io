@@ -70,7 +70,17 @@ local_search:
 # MathJax
 mathjax:
   enable: true
-  per_page: true
+  # ... 其他配置
+  per_page: true   # 或 true，看你需求
+  options:
+    tex2jax:
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+    # 关键：开启自动换行
+    CommonHTML:
+      linebreaks: { automatic: true }
+    SVG:
+      linebreaks: { automatic: true }
 
 # KaTeX
 katex:
