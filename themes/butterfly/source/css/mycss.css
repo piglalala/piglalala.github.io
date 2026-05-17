@@ -8,3 +8,17 @@
 #    /* 以下代表透明度为0.5 */
 #    background: rgba(255,255,255,.9);
 #}
+
+/* 文章主体背景改为纸张色 */
+.layout_post, 
+#article-container,
+#post,
+.post-content {
+  background-color: #fbf6eb !important;
+}
+
+/* 代码块保持微白，与纸张色拉开层次 */
+#article-container figure.highlight,
+#article-container pre {
+  background: #fefefe !important;
+}
