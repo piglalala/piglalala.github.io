@@ -1,9 +1,15 @@
-#/* 文章页背景 */
-#.layout_post>#post {
-#    /* 以下代表透明度为0.5 可以自行修改*/
-#    background: rgba(255,255,255,.9);
-#}
-#/* 所有页面背景 */
-#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
-#    background: var(--card-bg, rgba(251, 231, 255, 0.88)) !important;
-#}
+/* custom Butterfly theme overrides */
+
+/* 提升文章卡片背景层次，不再完全接近白色 */
+.layout_post > div:first-child:not(.recent-posts),
+.layout_post > #page,
+.read-mode .layout_post > #post {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* 如果对齐配置无效，则保底应用两端对齐 */
+#article-container p {
+  text-align: justify;
+  text-justify: inter-ideograph;
+  hyphens: auto;
+}
