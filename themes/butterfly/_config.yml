@@ -497,20 +497,20 @@ yandex_site_verification:
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 
-# theme_color:
-#   enable: true
-#   main: "#49B1F5"
-#   paginator: "#00c4b6"
-#   button_hover: "#FF7242"
-#   text_selection: "#00c4b6"
-#   link_color: "#99a9bf"
-#   meta_color: "#858585"
-#   hr_color: "#A4D8FA"
-#   code_foreground: "#F47466"
-#   code_background: "rgba(27, 31, 35, .05)"
-#   toc_color: "#00c4b6"
-#   blockquote_padding_color: "#49b1f5"
-#   blockquote_background_color: "#49b1f5"
+ theme_color:
+  enable: true
+  main: "#6D8C7E"                 # 主色调：鼠尾草绿，稳重不跳脱
+  paginator: "#9AB5A1"            # 分页：淡青灰
+  button_hover: "#C4A484"         # 按钮悬停：暖棕，像旧书皮
+  text_selection: "#D8E2C9"       # 文字选中：嫩绿黄
+  link_color: "#4A6B59"           # 链接色：深绿，辨识度足够且不刺眼
+  meta_color: "#8B8B7E"           # 元数据：暖灰
+  hr_color: "#D1C2B3"             # 分割线：浅米灰
+  code_foreground: "#5D6D5D"      # 行内代码：中绿灰
+  code_background: "rgba(180, 170, 150, 0.12)" # 代码背景：暖灰底，温柔区分
+  toc_color: "#6D8C7E"            # 目录高亮：同主色
+  blockquote_padding_color: "#B2A38B" # 引用左边框：灰棕
+  blockquote_background_color: "rgba(200, 190, 170, 0.1)" # 引用背景：淡卡其
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
