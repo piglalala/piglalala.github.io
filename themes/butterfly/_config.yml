@@ -515,6 +515,8 @@ yandex_site_verification:
   meta_theme_color_light: "F9E6F0"      # 顶栏白天：浅粉白，温柔不抢眼
   meta_theme_color_dark: "#2A1E2E"      # 顶栏夜晚：深紫黑，维持暗调一致性
 
+# Stretches the lines so that each line has equal width（文字向两侧对齊，对最后一行无效）
+text_align_justify: true
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
